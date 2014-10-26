@@ -1,4 +1,4 @@
-﻿using Word = Microsoft.Office.Interop.Word;
+﻿using InteropWord = Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +8,24 @@ namespace UnifiedOffice.Word
 {
     public class Application
     {
-        private Word.Application app = null;
-        private WdAlertLevel displayAlerts = WdAlertLevel.wdAlertsAll;
+        private InteropWord.Application app = null;
 
         public Application()
         {
-            this.app = new Word.Application();
+            this.app = new InteropWord.Application();
         }
 
         public WdAlertLevel DisplayAlerts
         {
             get
             {
-                return this.displayAlerts;
+                var displayAlerts = this.app.DisplayAlerts;
+                return (WdAlertLevel)displayAlerts;
             }
 
             set
             {
-                this.displayAlerts = value;
+                this.app.DisplayAlerts = (InteropWord.WdAlertLevel)value;
             }
         }
 
@@ -33,7 +33,7 @@ namespace UnifiedOffice.Word
         {
             if (this.app != null)
             {
-                this.app.Quit();
+                ((InteropWord._Application)this.app).Quit();
                 this.app = null;
             }
         }
