@@ -54,7 +54,7 @@ namespace UnifiedOffice.Word
             }
         }
 
-        public Document AddDocument()
+        public Document AddDocument(string templateName = "", bool openAsTemplate = false, WdNewDocumentType documentType = WdNewDocumentType.wdNewBlankDocument, bool visible = true)
         {
             InteropWord.Document newInteropDocument = this.app.Documents.Add();
             Document newDocument = new Document(newInteropDocument);
