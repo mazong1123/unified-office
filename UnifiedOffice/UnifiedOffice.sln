@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedOffice.Word", "Unifi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedOffice.Demo", "..\UnifiedOffice.Demo\UnifiedOffice.Demo.csproj", "{9ADABDFB-8AAB-4201-B218-2D27BA5993D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedOffice.Word.Tests", "..\UnifiedOffice.Tests\UnifiedOffice.Word.Tests.csproj", "{CE9D36DA-11EA-44AD-8AB0-459C127AF926}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9ADABDFB-8AAB-4201-B218-2D27BA5993D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ADABDFB-8AAB-4201-B218-2D27BA5993D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ADABDFB-8AAB-4201-B218-2D27BA5993D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9D36DA-11EA-44AD-8AB0-459C127AF926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9D36DA-11EA-44AD-8AB0-459C127AF926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9D36DA-11EA-44AD-8AB0-459C127AF926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9D36DA-11EA-44AD-8AB0-459C127AF926}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
