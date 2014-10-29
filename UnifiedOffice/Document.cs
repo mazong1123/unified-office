@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace UnifiedOffice.Word
 {
@@ -39,23 +40,51 @@ namespace UnifiedOffice.Word
 
         public void SaveToImages(string directory)
         {
-            foreach (Microsoft.Office.Interop.Word.Window window in this.document.Windows)
+            InteropWord.Windows windows = this.document.Windows;
+            int windowCount = windows.Count;
+            for (var i = 1; i <= windowCount; i++)
             {
-                foreach (Microsoft.Office.Interop.Word.Pane pane in window.Panes)
+                InteropWord.Window win = windows[i];
+
+                InteropWord.Panes panes = win.Panes;
+                int paneCount = panes.Count;
+                for (var j = 1; j <= paneCount; j++)
                 {
-                    for (var i = 1; i <= pane.Pages.Count; i++)
+                    InteropWord.Pane pane = panes[j];
+                    var pages = pane.Pages;
+                    var pageCount = pages.Count;
+                    for (var k = 1; k <= pageCount; k++)
                     {
-                        var bits = pane.Pages[i].EnhMetaFileBits;
-                        var target = directory + string.Format(@"\{0}_image.doc", i);
+                        var p = pages[i];
+                        var bits = p.EnhMetaFileBits;
+                        var target = directory + string.Format(@"\{0}_image.doc", k);
                         using (var ms = new MemoryStream((byte[])(bits)))
                         {
                             var image = System.Drawing.Image.FromStream(ms);
                             var pngTarget = Path.ChangeExtension(target, "png");
                             image.Save(pngTarget, System.Drawing.Imaging.ImageFormat.Png);
                         }
+
+                        Marshal.ReleaseComObject(p);
+                        p = null;
                     }
+
+                    Marshal.ReleaseComObject(pages);
+                    pages = null;
+
+                    Marshal.ReleaseComObject(pane);
+                    pane = null;
                 }
+
+                Marshal.ReleaseComObject(panes);
+                panes = null;
+
+                Marshal.ReleaseComObject(win);
+                win = null;
             }
+
+            Marshal.ReleaseComObject(windows);
+            windows = null;
         }
 
         public bool Equals(Document document)

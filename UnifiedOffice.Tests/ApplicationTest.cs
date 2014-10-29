@@ -23,7 +23,7 @@ namespace UnifiedOffice.Word.Tests
             wordApp = null;
 
             string projectDirectory = this.GetProjectDirectory();
-            DirectoryInfo projectDirectoryInfo = new DirectoryInfo(projectDirectory);
+            DirectoryInfo projectDirectoryInfo = new DirectoryInfo(projectDirectory + @"\misc\images");
 
             foreach (FileInfo file in projectDirectoryInfo.GetFiles())
             {

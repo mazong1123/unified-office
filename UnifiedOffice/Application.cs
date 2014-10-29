@@ -58,9 +58,9 @@ namespace UnifiedOffice.Word
             return newDocument;
         }
 
-        public Document OpenDocument(string fileName)
+        public Document OpenDocument(string fileName, bool isReadOnly = true, bool isConfirmConvention = false)
         {
-            InteropWord.Document openedInteropDocument = this.app.Documents.Open(fileName);
+            InteropWord.Document openedInteropDocument = this.app.Documents.Open(fileName, isConfirmConvention, isReadOnly);
             Document openedDocument = this.GetUODocument(openedInteropDocument);
 
             this.activeDocument = this.GetUODocument(this.app.ActiveDocument);
@@ -70,6 +70,11 @@ namespace UnifiedOffice.Word
 
         public void Quit()
         {
+            foreach (Document doc in this.documents)
+            {
+                doc.Close();
+            }
+
             if (this.app != null)
             {
                 ((InteropWord._Application)this.app).Quit();
