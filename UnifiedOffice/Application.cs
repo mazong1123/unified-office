@@ -15,13 +15,6 @@ namespace UnifiedOffice.Word
         public Application()
         {
             this.app = new InteropWord.Application();
-            
-            //this.activeDocument = new Document(this.app.ActiveDocument);
-            /*foreach (var interopDoc in this.app.Documents)
-            {
-                Document doc = new Document((InteropWord.Document)interopDoc);
-                this.documents.Add(doc);
-            }*/
         }
 
         public Document ActiveDocument
@@ -84,7 +77,7 @@ namespace UnifiedOffice.Word
             }
         }
 
-        public Document GetUODocument(InteropWord.Document interopDocument)
+        private Document GetUODocument(InteropWord.Document interopDocument)
         {
             Document foundDocument = null;
             foreach (var d in this.documents)
