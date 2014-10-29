@@ -5,115 +5,145 @@ using System.Text;
 
 namespace UnifiedOffice.Word
 {
-    // Summary:
-    //     Specifies the format to use when saving a document.
+    /// <summary>
+    /// Specifies the format to use when saving a document.
+    /// </summary>
     public enum WdSaveFormat
     {
-        // Summary:
-        //     Microsoft Word 97 document format.
+        /// <summary>
+        /// Microsoft Word 97 document format.
+        /// </summary>
         wdFormatDocument97 = 0,
-        //
-        // Summary:
-        //     Microsoft Word format.
+
+        /// <summary>
+        /// Microsoft Word format.
+        /// </summary>
         wdFormatDocument = 0,
-        //
-        // Summary:
-        //     Word 97 template format.
+
+        /// <summary>
+        /// Word 97 template format.
+        /// </summary>
         wdFormatTemplate97 = 1,
-        //
-        // Summary:
-        //     Microsoft Word template format.
+
+        /// <summary>
+        /// Microsoft Word template format.
+        /// </summary>
         wdFormatTemplate = 1,
-        //
-        // Summary:
-        //     Microsoft Windows text format.
+
+        /// <summary>
+        /// Microsoft Windows text format.
+        /// </summary>
         wdFormatText = 2,
-        //
-        // Summary:
-        //     Microsoft Windows text format with line breaks preserved.
+
+        /// <summary>
+        /// Microsoft Windows text format with line breaks preserved.
+        /// </summary>
         wdFormatTextLineBreaks = 3,
-        //
-        // Summary:
-        //     Microsoft DOS text format.
+
+        /// <summary>
+        /// Microsoft DOS text format.
+        /// </summary>
         wdFormatDOSText = 4,
-        //
-        // Summary:
-        //     Microsoft DOS text with line breaks preserved.
+
+        /// <summary>
+        /// Microsoft DOS text with line breaks preserved.
+        /// </summary>
         wdFormatDOSTextLineBreaks = 5,
-        //
-        // Summary:
-        //     Rich text format (RTF).
+
+        /// <summary>
+        /// Rich text format (RTF).
+        /// </summary>
         wdFormatRTF = 6,
-        //
-        // Summary:
-        //     Unicode text format.
+
+        /// <summary>
+        /// Unicode text format.
+        /// </summary>
         wdFormatUnicodeText = 7,
-        //
-        // Summary:
-        //     Encoded text format.
+
+        /// <summary>
+        /// Encoded text format.
+        /// </summary>
         wdFormatEncodedText = 7,
-        //
-        // Summary:
-        //     Standard HTML format.
+
+        /// <summary>
+        /// Standard HTML format.
+        /// </summary>
         wdFormatHTML = 8,
-        //
-        // Summary:
-        //     Web archive format.
+
+        /// <summary>
+        /// Web archive format.
+        /// </summary>
         wdFormatWebArchive = 9,
-        //
-        // Summary:
-        //     Filtered HTML format.
+
+        /// <summary>
+        /// Filtered HTML format.
+        /// </summary>
         wdFormatFilteredHTML = 10,
-        //
-        // Summary:
-        //     Extensible Markup Language (XML) format.
+
+        /// <summary>
+        /// Extensible Markup Language (XML) format.
+        /// </summary>
         wdFormatXML = 11,
-        //
-        // Summary:
-        //     XML document format.
+
+        /// <summary>
+        /// XML document format.
+        /// </summary>
         wdFormatXMLDocument = 12,
-        //
-        // Summary:
-        //     XML template format with macros enabled.
+
+        /// <summary>
+        /// XML template format with macros enabled.
+        /// </summary>
         wdFormatXMLDocumentMacroEnabled = 13,
-        //
-        // Summary:
-        //     XML template format.
+
+        /// <summary>
+        /// XML template format.
+        /// </summary>
         wdFormatXMLTemplate = 14,
-        //
-        // Summary:
-        //     XML template format with macros enabled.
+
+        /// <summary>
+        ///  XML template format with macros enabled.
+        /// </summary>
         wdFormatXMLTemplateMacroEnabled = 15,
-        //
-        // Summary:
-        //     Word default document file format. For Microsoft Office Word 2007, this is
-        //     the DOCX format.
+
+        /// <summary>
+        /// Word default document file format. For Microsoft Office Word 2007, this is
+        /// the DOCX format.
+        /// </summary>
         wdFormatDocumentDefault = 16,
-        //
-        // Summary:
-        //     PDF format.
+
+        /// <summary>
+        /// PDF format.
+        /// </summary>
         wdFormatPDF = 17,
-        //
-        // Summary:
-        //     XPS format.
+
+        /// <summary>
+        /// XPS format.
+        /// </summary>
         wdFormatXPS = 18,
-        //
-        // Summary:
-        //     Reserved for internal use.
+
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         wdFormatFlatXML = 19,
-        //
-        // Summary:
-        //     Reserved for internal use.
+
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         wdFormatFlatXMLMacroEnabled = 20,
-        //
-        // Summary:
-        //     Reserved for internal use.
+
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         wdFormatFlatXMLTemplate = 21,
-        //
-        // Summary:
-        //     Reserved for internal use.
+
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         wdFormatFlatXMLTemplateMacroEnabled = 22,
-        //
+        
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
         wdFormatOpenDocumentText = 23,
     }
 }

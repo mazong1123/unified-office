@@ -5,9 +5,13 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Drawing.Imaging;
 
 namespace UnifiedOffice.Word
 {
+    /// <summary>
+    /// Represents a Microsoft Office Word document.
+    /// </summary>
     public class Document
     {
         private InteropWord.Document document = null;
@@ -38,6 +42,10 @@ namespace UnifiedOffice.Word
             this.document.SaveAs2(fileName, format);
         }
 
+        /// <summary>
+        /// Save word document to images. The type of output images is png.
+        /// </summary>
+        /// <param name="directory">Specifies the directory for output images.</param>
         public void SaveToImages(string directory)
         {
             InteropWord.Windows windows = this.document.Windows;
@@ -66,6 +74,8 @@ namespace UnifiedOffice.Word
                         }
                         catch
                         {
+                            // pages[k] sometimes throws exception: 'System.Runtime.InteropServices.COMException: The requested member of the collection does not exist'.
+                            // This is a workaround for this issue.
                             continue;
                         }
 
@@ -74,8 +84,8 @@ namespace UnifiedOffice.Word
                         using (var ms = new MemoryStream((byte[])(bits)))
                         {
                             var image = System.Drawing.Image.FromStream(ms);
-                            var pngTarget = Path.ChangeExtension(target, "png");
-                            image.Save(pngTarget, System.Drawing.Imaging.ImageFormat.Png);
+                            var imageTarget = Path.ChangeExtension(target, "png");
+                            image.Save(imageTarget, ImageFormat.Png);
                         }
 
                         Marshal.ReleaseComObject(p);
@@ -128,6 +138,10 @@ namespace UnifiedOffice.Word
         public void Close()
         {
             ((InteropWord._Document)this.document).Close();
+
+            Marshal.ReleaseComObject(this.document);
+            this.document = null;
+            this.id = Guid.Empty;
         }
     }
 }

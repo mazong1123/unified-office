@@ -5,28 +5,34 @@ using System.Text;
 
 namespace UnifiedOffice.Word
 {
-    // Summary:
-    //     Specifies the type of new document to create.
+    /// <summary>
+    /// Specifies the type of new document to create.
+    /// </summary>
     public enum WdNewDocumentType
     {
-        // Summary:
-        //     Blank document.
+        /// <summary>
+        /// Blank document.
+        /// </summary>
         wdNewBlankDocument = 0,
-        //
-        // Summary:
-        //     Web page.
+
+        /// <summary>
+        /// Web page.
+        /// </summary>
         wdNewWebPage = 1,
-        //
-        // Summary:
-        //     E-mail message.
+
+        /// <summary>
+        /// E-mail message.
+        /// </summary>
         wdNewEmailMessage = 2,
-        //
-        // Summary:
-        //     Frameset.
+
+        /// <summary>
+        /// Frameset.
+        /// </summary>
         wdNewFrameset = 3,
-        //
-        // Summary:
-        //     XML document.
+
+        /// <summary>
+        /// XML document.
+        /// </summary>
         wdNewXMLDocument = 4,
     }
 }
