@@ -59,9 +59,20 @@ namespace UnifiedOffice.Word
             InteropWord.Document newInteropDocument = this.app.Documents.Add();
             Document newDocument = new Document(newInteropDocument);
             this.documents.Add(newDocument);
-            this.activeDocument = newDocument;
+
+            this.activeDocument = this.GetUODocument(this.app.ActiveDocument);
 
             return newDocument;
+        }
+
+        public Document OpenDocument(string fileName)
+        {
+            InteropWord.Document openedInteropDocument = this.app.Documents.Open(fileName);
+            Document openedDocument = this.GetUODocument(openedInteropDocument);
+
+            this.activeDocument = this.GetUODocument(this.app.ActiveDocument);
+
+            return openedDocument;
         }
 
         public void Quit()
@@ -71,6 +82,27 @@ namespace UnifiedOffice.Word
                 ((InteropWord._Application)this.app).Quit();
                 this.app = null;
             }
+        }
+
+        public Document GetUODocument(InteropWord.Document interopDocument)
+        {
+            Document foundDocument = null;
+            foreach (var d in this.documents)
+            {
+                if (d.InteropEquals(interopDocument))
+                {
+                    foundDocument = d;
+                    break;
+                }
+            }
+
+            if (foundDocument == null)
+            {
+                foundDocument = new Document(interopDocument);
+                this.documents.Add(foundDocument);
+            }
+
+            return foundDocument;
         }
     }
 }

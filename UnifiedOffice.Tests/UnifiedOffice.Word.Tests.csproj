@@ -62,6 +62,9 @@
       <Name>UnifiedOffice.Word</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="misc\test.doc" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
