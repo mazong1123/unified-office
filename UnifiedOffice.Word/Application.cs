@@ -21,6 +21,19 @@ namespace UnifiedOffice.Word
             this.app = new InteropWord.Application();
         }
 
+        public bool Visible
+        {
+            get
+            {
+                return this.app.Visible;
+            }
+
+            set
+            {
+                this.app.Visible = value;
+            }
+        }
+
         public Document ActiveDocument
         {
             get 
@@ -53,21 +66,38 @@ namespace UnifiedOffice.Word
 
         public Document AddDocument(string templateName = "", bool openAsTemplate = false, WdNewDocumentType documentType = WdNewDocumentType.wdNewBlankDocument, bool visible = true)
         {
-            InteropWord.Document newInteropDocument = this.app.Documents.Add();
+            InteropWord.Document newInteropDocument = this.app.Documents.Add(templateName, openAsTemplate, documentType, visible);
             Document newDocument = new Document(newInteropDocument);
             this.documents.Add(newDocument);
 
-            this.activeDocument = this.GetUODocument(this.app.ActiveDocument);
+            if (visible)
+            {
+                this.activeDocument = this.GetUODocument(this.app.ActiveDocument);
+            }
 
             return newDocument;
         }
 
-        public Document OpenDocument(string fileName, bool isReadOnly = true, bool isConfirmConvention = false)
+        public Document OpenDocument(string fileName, bool isReadOnly = true, bool isConfirmConvention = false, bool isVisible = true)
         {
-            InteropWord.Document openedInteropDocument = this.app.Documents.Open(fileName, isConfirmConvention, isReadOnly);
+            InteropWord.Document openedInteropDocument = this.app.Documents.Open(fileName, 
+                isConfirmConvention, 
+                isReadOnly, 
+                Type.Missing, 
+                Type.Missing,
+                Type.Missing,
+                Type.Missing,
+                Type.Missing,
+                Type.Missing,
+                Type.Missing,
+                Type.Missing,
+                isVisible);
             Document openedDocument = this.GetUODocument(openedInteropDocument);
 
-            this.activeDocument = this.GetUODocument(this.app.ActiveDocument);
+            if (isVisible)
+            {
+                this.activeDocument = this.GetUODocument(this.app.ActiveDocument);
+            }
 
             return openedDocument;
         }

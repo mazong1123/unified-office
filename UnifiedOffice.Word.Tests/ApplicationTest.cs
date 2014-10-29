@@ -12,15 +12,16 @@ namespace UnifiedOffice.Word.Tests
         [TestInitialize]
         public void Setup()
         {
-            wordApp = new Application();
+            this.wordApp = new Application();
+            this.wordApp.Visible = false;
         }
 
         [TestCleanup]
         public void Cleanup()
         {
-            wordApp.Quit();
+            this.wordApp.Quit();
 
-            wordApp = null;
+            this.wordApp = null;
         }
 
         [TestMethod]

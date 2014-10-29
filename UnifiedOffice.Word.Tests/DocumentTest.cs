@@ -15,7 +15,8 @@ namespace UnifiedOffice.Word.Tests
         [TestInitialize]
         public void Setup()
         {
-            wordApp = new Application();
+            this.wordApp = new Application();
+            this.wordApp.Visible = false;
 
             string projectDirectory = this.GetProjectDirectory();
             DirectoryInfo projectDirectoryInfo = new DirectoryInfo(projectDirectory + @"\misc\images");
@@ -47,7 +48,7 @@ namespace UnifiedOffice.Word.Tests
 
             // Act
             string projectDirectory = this.GetProjectDirectory();
-            Document openedDocument = this.wordApp.OpenDocument(projectDirectory + @"\misc\test.doc");
+            Document openedDocument = this.wordApp.OpenDocument(projectDirectory + @"\misc\test.doc", true, false, false);
 
             openedDocument.SaveAs(projectDirectory + @"\misc\test-word.docx", WdSaveFormat.wdFormatDocumentDefault);
 
@@ -65,7 +66,7 @@ namespace UnifiedOffice.Word.Tests
 
             // Act
             string projectDirectory = this.GetProjectDirectory();
-            Document openedDocument = this.wordApp.OpenDocument(projectDirectory + @"\misc\test.doc");
+            Document openedDocument = this.wordApp.OpenDocument(projectDirectory + @"\misc\test.doc", true, false, false);
 
             openedDocument.SaveAs(projectDirectory + @"\misc\test-pdf.pdf", WdSaveFormat.wdFormatPDF);
 
