@@ -45,6 +45,10 @@ namespace UnifiedOffice.Word
             for (var i = 1; i <= windowCount; i++)
             {
                 InteropWord.Window win = windows[i];
+                InteropWord.View windowsView = win.View;
+
+                // Pages can only be retrieved in print layout view.
+                windowsView.Type = InteropWord.WdViewType.wdPrintView;
 
                 InteropWord.Panes panes = win.Panes;
                 int paneCount = panes.Count;
@@ -53,9 +57,18 @@ namespace UnifiedOffice.Word
                     InteropWord.Pane pane = panes[j];
                     var pages = pane.Pages;
                     var pageCount = pages.Count;
-                    for (var k = 1; k <= pageCount; k++)
+                    for (var k = 1; k <= pageCount;)
                     {
-                        var p = pages[i];
+                        InteropWord.Page p = null;
+
+                        try {
+                            p = pages[k];
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+
                         var bits = p.EnhMetaFileBits;
                         var target = directory + string.Format(@"\{0}_image.doc", k);
                         using (var ms = new MemoryStream((byte[])(bits)))
@@ -67,10 +80,15 @@ namespace UnifiedOffice.Word
 
                         Marshal.ReleaseComObject(p);
                         p = null;
+
+                        k++;
                     }
 
                     Marshal.ReleaseComObject(pages);
                     pages = null;
+
+                    Marshal.ReleaseComObject(windowsView);
+                    windowsView = null;
 
                     Marshal.ReleaseComObject(pane);
                     pane = null;

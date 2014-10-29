@@ -16,6 +16,19 @@ namespace UnifiedOffice.Word.Tests
         public void Setup()
         {
             wordApp = new Application();
+
+            string projectDirectory = this.GetProjectDirectory();
+            DirectoryInfo projectDirectoryInfo = new DirectoryInfo(projectDirectory + @"\misc\images");
+
+            foreach (FileInfo file in projectDirectoryInfo.GetFiles())
+            {
+                file.Delete();
+            }
+
+            foreach (DirectoryInfo dir in projectDirectoryInfo.GetDirectories())
+            {
+                dir.Delete(true);
+            }
         }
 
         [TestCleanup]

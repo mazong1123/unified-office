@@ -64,13 +64,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="misc\test-pdf.pdf" />
-    <None Include="misc\test-word.docx" />
     <None Include="misc\test.doc" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="misc\images\1_image.png" />
-    <Content Include="misc\images\2_image.png" />
+    <Folder Include="misc\images\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

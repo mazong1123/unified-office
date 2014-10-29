@@ -21,19 +21,6 @@ namespace UnifiedOffice.Word.Tests
             wordApp.Quit();
 
             wordApp = null;
-
-            string projectDirectory = this.GetProjectDirectory();
-            DirectoryInfo projectDirectoryInfo = new DirectoryInfo(projectDirectory + @"\misc\images");
-
-            foreach (FileInfo file in projectDirectoryInfo.GetFiles())
-            {
-                file.Delete();
-            }
-
-            foreach (DirectoryInfo dir in projectDirectoryInfo.GetDirectories())
-            {
-                dir.Delete(true);
-            }
         }
 
         [TestMethod]
