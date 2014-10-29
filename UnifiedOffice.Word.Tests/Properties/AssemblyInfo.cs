@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UnifiedOffice.Demo")]
+[assembly: AssemblyTitle("UnifiedOffice.Word.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UnifiedOffice.Demo")]
+[assembly: AssemblyProduct("UnifiedOffice.Word.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0a360b06-e54b-42df-8250-8e662b3e4949")]
+[assembly: Guid("58906ba9-4393-426b-943c-813d958808e2")]
 
 // Version information for an assembly consists of the following four values:
 //
