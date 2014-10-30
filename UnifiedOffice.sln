@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedOffice.Word", "Unifi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedOffice.Word.Tests", "UnifiedOffice.Word.Tests\UnifiedOffice.Word.Tests.csproj", "{290F4C05-D16D-4CD5-8237-F1A48D2D5D0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifiedOffice.PowerPoint", "UnifiedOffice.PowerPoint\UnifiedOffice.PowerPoint.csproj", "{2780D49A-1E6F-4CA9-B244-43256754BF98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{290F4C05-D16D-4CD5-8237-F1A48D2D5D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{290F4C05-D16D-4CD5-8237-F1A48D2D5D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{290F4C05-D16D-4CD5-8237-F1A48D2D5D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2780D49A-1E6F-4CA9-B244-43256754BF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2780D49A-1E6F-4CA9-B244-43256754BF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2780D49A-1E6F-4CA9-B244-43256754BF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2780D49A-1E6F-4CA9-B244-43256754BF98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
