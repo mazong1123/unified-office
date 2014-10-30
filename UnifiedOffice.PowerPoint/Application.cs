@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.InteropServices;
 
 namespace UnifiedOffice.PowerPoint
 {
@@ -16,6 +17,17 @@ namespace UnifiedOffice.PowerPoint
         public Application()
         {
             this.app = new InteropPowerPoint.Application();
+        }
+
+        public void Quit()
+        {
+            if (this.app != null)
+            {
+                ((InteropPowerPoint._Application)this.app).Quit();
+
+                Marshal.ReleaseComObject(this.app);
+                this.app = null;
+            }
         }
     }
 }
