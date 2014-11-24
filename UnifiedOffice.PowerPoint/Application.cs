@@ -43,6 +43,11 @@ namespace UnifiedOffice.PowerPoint
 
         public void Quit()
         {
+            foreach (Presentation ppt in this.presentations)
+            {
+                ppt.Close();
+            }
+
             if (this.app != null)
             {
                 ((InteropPowerPoint._Application)this.app).Quit();

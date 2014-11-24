@@ -137,11 +137,14 @@ namespace UnifiedOffice.Word
 
         public void Close()
         {
-            ((InteropWord._Document)this.document).Close();
+            if (this.document != null)
+            {
+                ((InteropWord._Document)this.document).Close();
 
-            Marshal.ReleaseComObject(this.document);
-            this.document = null;
-            this.id = Guid.Empty;
+                Marshal.ReleaseComObject(this.document);
+                this.document = null;
+                this.id = Guid.Empty;
+            }
         }
     }
 }
